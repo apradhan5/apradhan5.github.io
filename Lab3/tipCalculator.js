@@ -119,6 +119,7 @@ function handleLanguageChange(language) {
             document.getElementById("totalTipHeading").innerHTML = "Total Tip";
             document.getElementById("totalAmountHeading").innerHTML = "Total Bill";
             document.getElementById("resetBtn").value = "Reset";
+            document.getElementById("footerText").innerHTML = "©Copyright and Developed By - ADITYA PRADHAN";
             break;
 
         case 'fr':
@@ -142,6 +143,7 @@ function handleLanguageChange(language) {
             document.getElementById("totalTipHeading").innerHTML = "Pourboire total";
             document.getElementById("totalAmountHeading").innerHTML = "Facture totale";
             document.getElementById("resetBtn").value = "Réinitialiser";
+            document.getElementById("footerText").innerHTML = "© Copyright et développé par - ADITYA PRADHAN";
             break;
         default:
             break;
