@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en-US">
+
+<!-- Header Start -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap library attached -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="styles/style.css" rel="stylesheet" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/Browser_Title.png">
+  <title>Aditya Pradhan</title>
+</head>
+<!-- Header End -->
+
+<!-- Body Start-->
+
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand text-white" style="font-size: 24px;">ITMD 4/541 - Lab 4 - Aditya Pradhan</a>
+    </div>
+  </nav>
+
+  <!-- Error Toast Message -->
+  <div id="toastError" class="shadow rounded-3 d-flex justify-content-evenly" role="alert">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+      class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
+      <path
+        d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+    </svg>
+    &nbsp; <p id="toastErrorLabel"></p> &nbsp;
+    <button type="button" class="btn-close btn-close-white" onclick="handleClose('error')" id="closeBtn"
+      aria-label="Close"></button>
+  </div>
+
+  <!-- Success Toast Message -->
+  <div id="toastSuccess" class="shadow rounded-3 d-flex justify-content-evenly" role="alert">
+    Success !!
+  </div>
+  <!-- Main App Section -->
+  <section>
+    <div class="container bg-white rounded-3 shadow p-3 mt-4 mb-3" style="max-width: 96%">
+      <div class="row p-3 m-2">
+        <div class="fs-1 text-wrap text-center mb-3 pb-2">
+          <p id="appHeading" class="display-2" style="letter-spacing: 10px;">Sunrise & Sunset
+            Dashboard</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-group">
+          <span class="input-group-text"><svg fill="#000000" height="20px" width="20px" version="1.1" id="Capa_1"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 297 297"
+              xml:space="preserve" stroke="#000000">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <g>
+                  <path
+                    d="M148.5,0C87.43,0,37.747,49.703,37.747,110.797c0,91.026,99.729,179.905,103.976,183.645 c1.936,1.705,4.356,2.559,6.777,2.559c2.421,0,4.841-0.853,6.778-2.559c4.245-3.739,103.975-92.618,103.975-183.645 C259.253,49.703,209.57,0,148.5,0z M148.5,272.689c-22.049-21.366-90.243-93.029-90.243-161.892 c0-49.784,40.483-90.287,90.243-90.287s90.243,40.503,90.243,90.287C238.743,179.659,170.549,251.322,148.5,272.689z">
+                  </path>
+                  <path
+                    d="M148.5,59.183c-28.273,0-51.274,23.154-51.274,51.614c0,28.461,23.001,51.614,51.274,51.614 c28.273,0,51.274-23.153,51.274-51.614C199.774,82.337,176.773,59.183,148.5,59.183z M148.5,141.901 c-16.964,0-30.765-13.953-30.765-31.104c0-17.15,13.801-31.104,30.765-31.104c16.964,0,30.765,13.953,30.765,31.104 C179.265,127.948,165.464,141.901,148.5,141.901z">
+                  </path>
+                </g>
+              </g>
+            </svg></span>
+          <input id="locationSearchInput" type="search" id="form1" placeholder="Enter Location" class="form-control"
+            required />
+          <div class="invalid-feedback">
+            Please provide a location.
+          </div>
+          <button id="search-button" style="z-index: 0;" type="button" onclick="handleLocationSearch()"
+            class="btn btn-secondary">Get Details</button>
+        </div>
+      </div>
+      <div
+        class="row mt-5 mx-auto justify-content-center justify-content-sm-center justify-content-md-center justify-content-lg-center justify-content-xl-center">
+        <div id="loaderOuter" class="p-3">
+          <div class="loader">
+          </div>
+        </div>
+        <div class="todayBox border border-light shadow rounded-3  mb-5">
+          <div class="d-flex row">
+            <div class="text-wrap row text-left my-3 pb-2 pb-2 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+              <div class="text-wrap text-left col col-sm-1 col-md-6 col-lg-12 col-xl-12">
+                <p class="display-6" style="letter-spacing: 2px;">TODAY</p>
+              </div>
+              <div class="col col-sm-1 col-md-6 col-lg-12 col-xl-12">
+                <p id="todayDate" style="letter-spacing: 2px;"></p>
+              </div>
+            </div>
+            <div class="text-wrap text-center my-3 pb-2 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+              <p class="h6" id="todayLocationHeading" style="letter-spacing: 2px;"></p>
+            </div>
+          </div>
+          <div class="text-center display-6 text-white-50 noData fst-italic">
+            <p>No Data To Display</p>
+          </div>
+
+          <div id="todayCards" class="card-group mb-5 text-center">
+            <div class="card shadow">
+              <img src="/images/wi-sunrise.svg" class="card-img-top cardImg" alt="Sunrise">
+              <!-- <i class="wi wi-night-sleet card-img-top"></i> -->
+              <div class="card-body">
+                <h5 class="card-title">Sunrise</h5>
+                <p class="card-text" id="todaySunriseText"></p>
+              </div>
+            </div>
+            <div class="card shadow">
+              <img src="/images/wi-sunset.svg" class="card-img-top cardImg" alt="Sunset">
+              <div class="card-body">
+                <h5 class="card-title">Sunset</h5>
+                <p class="card-text" id="todaySunsetText"></p>
+              </div>
+            </div>
+            <div class="card shadow">
+              <img src="/images/sunrise.png" class="card-img-top cardImg" alt="Dawn">
+              <div class="card-body">
+                <h5 class="card-title">Dawn</h5>
+                <p class="card-text" id="todayDawnText"></p>
+              </div>
+            </div>
+            <div class="card shadow">
+              <img src="/images/dusk.png" class="card-img-top cardImg" alt="Dusk">
+              <div class="card-body">
+                <h5 class="card-title">Dusk</h5>
+                <p class="card-text" id="todayDuskText"></p>
+              </div>
+            </div>
+            <div class="card shadow">
+              <img src="/images/wi-time-1.svg" class="card-img-top cardImg" alt="Day Length">
+              <div class="card-body">
+                <h5 class="card-title">Day Length</h5>
+                <p class="card-text" id="todayDayLengthText"></p>
+              </div>
+            </div>
+            <div class="card shadow">
+              <img src="/images/wi-day-sunny.svg" class="card-img-top cardImg" alt="Solar Noon">
+              <div class="card-body">
+                <h5 class="card-title">Solar Noon</h5>
+                <p class="card-text" id="todaySolarNoonText"></p>
+              </div>
+            </div>
+            <div class="card shadow">
+              <img src="/images/time-zone.png" style="padding: 5px;" class="card-img-top cardImg" alt="Time Zone">
+              <div class="card-body">
+                <h5 class="card-title">Time Zone</h5>
+                <p class="card-text" id="todayTimeZoneText"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tomorrowBox border border-light shadow rounded-3  mb-3">
+          <div class="d-flex row">
+            <div class="text-wrap row text-left my-3 pb-2 pb-2 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+              <div class="col col-sm-1 col-md-6 col-lg-12 col-xl-12">
+                <p class="display-6" style="letter-spacing: 2px;">TOMORROW</p>
+              </div>
+              <div class="col col-sm-1 col-md-6 col-lg-12 col-xl-12">
+                <p id="tomorrowDate" style="letter-spacing: 2px;"></p>
+              </div>
+            </div>
+            <div class="text-wrap text-center my-3 pb-2 pb-2 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+              <p class="h6" id="tomorrowLocationHeading" style="letter-spacing: 2px;"></p>
+            </div>
+          </div>
+          <div class="text-center display-6 text-white-50 noData fst-italic">
+            <p>No Data To Display</p>
+          </div>
+          <div id="tomorrowCards" class="card-group mb-5 text-center">
+            <div class="card shadow">
+              <img src="/images/wi-sunrise.svg" class="card-img-top cardImg" alt="Sunrise">
+              <!-- <i class="wi wi-night-sleet card-img-top"></i> -->
+              <div class="card-body">
+                <h5 class="card-title">Sunrise</h5>
+                <p class="card-text" id="tomorrowSunriseText"></p>
+              </div>
+            </div>
+            <div class="card shadow">
+              <img src="/images/wi-sunset.svg" class="card-img-top cardImg" alt="Sunset">
+              <div class="card-body">
+                <h5 class="card-title">Sunset</h5>
+                <p class="card-text" id="tomorrowSunsetText"></p>
+              </div>
+            </div>
+            <div class="card shadow">
+              <img src="/images/sunrise.png" class="card-img-top cardImg" alt="Dawn">
+              <div class="card-body">
+                <h5 class="card-title">Dawn</h5>
+                <p class="card-text" id="tomorrowDawnText"></p>
+              </div>
+            </div>
+            <div class="card shadow">
+              <img src="/images/dusk.png" class="card-img-top cardImg" alt="Dusk">
+              <div class="card-body">
+                <h5 class="card-title">Dusk</h5>
+                <p class="card-text" id="tomorrowDuskText"></p>
+              </div>
+            </div>
+            <div class="card shadow">
+              <img src="/images/wi-time-1.svg" class="card-img-top cardImg" alt="Day Length">
+              <div class="card-body">
+                <h5 class="card-title">Day Length</h5>
+                <p class="card-text" id="tomorrowDayLengthText"></p>
+              </div>
+            </div>
+            <div class="card shadow">
+              <img src="/images/wi-day-sunny.svg" class="card-img-top cardImg" alt="Solar Noon">
+              <div class="card-body">
+                <h5 class="card-title">Solar Noon</h5>
+                <p class="card-text" id="tomorrowSolarNoonText"></p>
+              </div>
+            </div>
+            <div class="card shadow">
+              <img src="/images/time-zone.png" style="padding: 5px;" class="card-img-top cardImg" alt="Time Zone">
+              <div class="card-body">
+                <h5 class="card-title">Time Zone</h5>
+                <p class="card-text" id="tomorrowTimeZoneText"></p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer">
+      <div class="innerFooter">
+        <p id="footerText">©Copyright and Developed By - ADITYA PRADHAN</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap Script Added -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <!-- Custom Script Added -->
+  <script src="sunriseSunset.js"></script>
+</body>
+<!-- Body End -->
+
+</html>
