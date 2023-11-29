@@ -144,6 +144,14 @@
     width: 60%;
   }
 
+  .currentLocationBox{
+    text-align: left !important;
+    padding-left: 10px !important;
+  }
+  .currentLocationButton{
+    width: 137%;
+  }
+
   .row.mt-5.mx-auto.justify-content-center.justify-content-sm-center.justify-content-md-center.justify-content-lg-center.justify-content-xl-center{
     width: 98%;
   }
@@ -211,6 +219,12 @@
   .input-group{
     width: 60%;
   }
+  .currentLocationBox{
+    text-align: left !important;
+  }
+  .currentLocationButton{
+    width: 130%;
+  }
 
   .row.mt-5.mx-auto.justify-content-center.justify-content-sm-center.justify-content-md-center.justify-content-lg-center.justify-content-xl-center{
     width: 98%;
@@ -251,7 +265,7 @@
   .navbar-brand.text-white {
     font-size: 15px !important;
   }
-  
+
   #toastError {
     width: 50% !important;
     font-size: 12px !important;
@@ -281,6 +295,13 @@
   }
   .row.mt-5.mx-auto.justify-content-center.justify-content-sm-center.justify-content-md-center.justify-content-lg-center.justify-content-xl-center{
     width: 98%;
+  }
+
+  .currentLocationBox{
+    text-align: center !important;
+  }
+  .currentLocationButton{
+    width: 111%;
   }
 
   #todayLocationHeading{

@@ -15,80 +15,37 @@ var tomorrowDayLength;
 var tomorrowSolarNoonTime;
 var tomorrowTimeZone;
 
+// Function to handle the current Location click
+function handleCurrentLocation() {
+  navigator.geolocation.getCurrentPosition(currentLocationSuccess, currentLocationError);
+}
+
+// Function to handle the currentLocation success
+function currentLocationSuccess(pos) {
+  const crd = pos.coords;
+  lat = crd.latitude;
+  lon = crd.longitude
+  console.log("Lat", lat);
+  console.log("Lon", lon);
+
+  let getGeoCodeUrl = "https://geocode.maps.co/reverse?lat=" + encodeURIComponent(lat) + "&lon="+encodeURIComponent(lon);
+  geoCodeApiCall(getGeoCodeUrl, "currentLocation");
+
+}
+
+// Function to handle the currentLocation error
+function currentLocationError(err) {
+  console.log(`ERROR(${err.code}): ${err.message}`);
+}
+
 // Function to handle location search input
 function handleLocationSearch() {
   let locationSearchInput = document.getElementById("locationSearchInput").value
 
   if (locationSearchInput.trim().length != 0) {
     let getGeoCodeUrl = "https://geocode.maps.co/search?q=" + encodeURIComponent(locationSearchInput);
-    let outerLoaderElement = document.getElementById("loaderOuter");
-    outerLoaderElement.style.display = "block";
 
-    setTimeout(() => { 
-      outerLoaderElement.style.display = "none";
-    }, 1500);
-
-    let toastElement = document.getElementById("toastError");
-    
-    fetch(getGeoCodeUrl)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Error');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        if (data.length != 0) {
-          let toastSuccessElement = document.getElementById("toastSuccess");
-          toastSuccessElement.classList.add("show");
-
-          setTimeout(() => {
-            toastSuccessElement.classList.remove("show");
-          }, 4000);
-          
-          displayLocationName = data[0].display_name;
-          document.getElementById("todayLocationHeading").innerHTML = displayLocationName;
-          document.getElementById("tomorrowLocationHeading").innerHTML = displayLocationName;
-          
-          lat = data[0].lat;
-          lon = data[0].lon;
-
-          var todayDate = new Date();
-          todayDate.setHours(0, 0, 0, 0);
-
-          var tomorrowDate = new Date(todayDate);
-          tomorrowDate.setDate(todayDate.getDate() + 1);
-
-          var formattedTodayDate = todayDate.toISOString().split('T')[0]; // YYYY-MM-DD
-          var formattedTomorrowDate = tomorrowDate.toISOString().split('T')[0]; // YYYY-MM-DD
-
-          let todaySunriseSunsetUrl = "https://api.sunrisesunset.io/json?lat=" + encodeURIComponent(lat) + "&lng=" + encodeURIComponent(lon) + "&date=" + formattedTodayDate;
-          todaySunriseSunsetApiCall(todaySunriseSunsetUrl, formattedTodayDate);
-
-          let tomorrowDateSunriseSunsetUrl = "https://api.sunrisesunset.io/json?lat=" + encodeURIComponent(lat) + "&lng=" + encodeURIComponent(lon) + "&date=" + formattedTomorrowDate;
-          tomorrowSunriseSunsetApiCall(tomorrowDateSunriseSunsetUrl, formattedTomorrowDate);
-
-          const noDataElement = document.querySelectorAll('.noData');
-
-          noDataElement.forEach(box => { box.style.display = 'none'; });
-
-        }
-        else {
-          toastElement.innerHTML = "Invalid Location : " + locationSearchInput
-          toastElement.classList.add("show");
-          setTimeout(() => { 
-            toastElement.classList.remove("show");
-          }, 4000);
-        }
-      })
-      .catch((error) => {
-        console.log("Error from GeoCode API-> ", error);
-        toastElement.innerHTML = "Error from API Callout : " + JSON.stringify(error);
-        toastElement.classList.add("show");
-        setTimeout(() => { 
-          toastElement.classList.remove("show");
-        }, 4000);
-      })
+    geoCodeApiCall(getGeoCodeUrl, "userLocationSearch");
   }
   else {
     let toastElement = document.getElementById("toastError");
@@ -100,6 +57,81 @@ function handleLocationSearch() {
   }
 }
 
+// Function to call geoCodeApi for current and user searched location
+function geoCodeApiCall(getGeoCodeUrl, source) {
+  let toastElement = document.getElementById("toastError");
+  let outerLoaderElement = document.getElementById("loaderOuter");
+  outerLoaderElement.style.display = "block";
+
+  setTimeout(() => {
+    outerLoaderElement.style.display = "none";
+  }, 1500);
+  fetch(getGeoCodeUrl)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Error');
+      }
+      return response.json();
+    })
+    .then((data) => {
+      if (data.length != 0) {
+        let toastSuccessElement = document.getElementById("toastSuccess");
+        toastSuccessElement.classList.add("show");
+
+        setTimeout(() => {
+          toastSuccessElement.classList.remove("show");
+        }, 4000);
+
+        if(source == "currentLocation"){
+          displayLocationName = data.display_name;
+        }
+        if(source == "userLocationSearch"){
+          displayLocationName = data[0].display_name;
+          lat = data[0].lat;
+          lon = data[0].lon;
+        }
+        document.getElementById("todayLocationHeading").innerHTML = displayLocationName;
+        document.getElementById("tomorrowLocationHeading").innerHTML = displayLocationName;
+
+
+
+        var todayDate = new Date();
+        todayDate.setHours(0, 0, 0, 0);
+
+        var tomorrowDate = new Date(todayDate);
+        tomorrowDate.setDate(todayDate.getDate() + 1);
+
+        var formattedTodayDate = todayDate.toISOString().split('T')[0]; // YYYY-MM-DD
+        var formattedTomorrowDate = tomorrowDate.toISOString().split('T')[0]; // YYYY-MM-DD
+
+        let todaySunriseSunsetUrl = "https://api.sunrisesunset.io/json?lat=" + encodeURIComponent(lat) + "&lng=" + encodeURIComponent(lon) + "&date=" + formattedTodayDate;
+        todaySunriseSunsetApiCall(todaySunriseSunsetUrl, formattedTodayDate);
+
+        let tomorrowDateSunriseSunsetUrl = "https://api.sunrisesunset.io/json?lat=" + encodeURIComponent(lat) + "&lng=" + encodeURIComponent(lon) + "&date=" + formattedTomorrowDate;
+        tomorrowSunriseSunsetApiCall(tomorrowDateSunriseSunsetUrl, formattedTomorrowDate);
+
+        const noDataElement = document.querySelectorAll('.noData');
+
+        noDataElement.forEach(box => { box.style.display = 'none'; });
+
+      }
+      else {
+        toastElement.innerHTML = "Invalid Location : " + locationSearchInput
+        toastElement.classList.add("show");
+        setTimeout(() => {
+          toastElement.classList.remove("show");
+        }, 4000);
+      }
+    })
+    .catch((error) => {
+      console.log("Error from GeoCode API-> ", error);
+      toastElement.innerHTML = "Error from API Callout : " + JSON.stringify(error);
+      toastElement.classList.add("show");
+      setTimeout(() => {
+        toastElement.classList.remove("show");
+      }, 4000);
+    })
+}
 // Function to call the SunriseSunsetAPI for the todaysDate
 function todaySunriseSunsetApiCall(todaySunriseSunsetUrl, todayDate) {
   fetch(todaySunriseSunsetUrl)

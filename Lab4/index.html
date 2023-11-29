@@ -50,8 +50,8 @@
             Dashboard</p>
         </div>
       </div>
-      <div class="row">
-        <div class="input-group">
+      <div class="row justify-content-between">
+        <div class="input-group p-2 col-sm-12 col-md-6 col-lg-6 col-xl-6">
           <span class="input-group-text"><svg fill="#000000" height="20px" width="20px" version="1.1" id="Capa_1"
               xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 297 297"
               xml:space="preserve" stroke="#000000">
@@ -75,6 +75,10 @@
           </div>
           <button id="search-button" style="z-index: 0;" type="button" onclick="handleLocationSearch()"
             class="btn btn-secondary">Get Details</button>
+        </div>
+        <div class="col-sm-12 mt-3 col-md-6 col-lg-6 col-xl-6 text-end px-5 currentLocationBox">
+          <button style="z-index: 0;" type="button" onclick="handleCurrentLocation()"
+            class="btn btn-secondary currentLocationButton">Get Current Location</button>
         </div>
       </div>
       <div
@@ -103,49 +107,50 @@
 
           <div id="todayCards" class="card-group mb-5 text-center">
             <div class="card shadow">
-              <img src="./images/wi-sunrise.svg" class="card-img-top cardImg" alt="Sunrise">
+              <img src="/images/wi-sunrise.svg" class="card-img-top cardImg" alt="Sunrise">
+              <!-- <i class="wi wi-night-sleet card-img-top"></i> -->
               <div class="card-body">
                 <h5 class="card-title">Sunrise</h5>
                 <p class="card-text" id="todaySunriseText"></p>
               </div>
             </div>
             <div class="card shadow">
-              <img src="./images/wi-sunset.svg" class="card-img-top cardImg" alt="Sunset">
+              <img src="/images/wi-sunset.svg" class="card-img-top cardImg" alt="Sunset">
               <div class="card-body">
                 <h5 class="card-title">Sunset</h5>
                 <p class="card-text" id="todaySunsetText"></p>
               </div>
             </div>
             <div class="card shadow">
-              <img src="./images/sunrise.png" class="card-img-top cardImg" alt="Dawn">
+              <img src="/images/sunrise.png" class="card-img-top cardImg" alt="Dawn">
               <div class="card-body">
                 <h5 class="card-title">Dawn</h5>
                 <p class="card-text" id="todayDawnText"></p>
               </div>
             </div>
             <div class="card shadow">
-              <img src="./images/dusk.png" class="card-img-top cardImg" alt="Dusk">
+              <img src="/images/dusk.png" class="card-img-top cardImg" alt="Dusk">
               <div class="card-body">
                 <h5 class="card-title">Dusk</h5>
                 <p class="card-text" id="todayDuskText"></p>
               </div>
             </div>
             <div class="card shadow">
-              <img src="./images/wi-time-1.svg" class="card-img-top cardImg" alt="Day Length">
+              <img src="/images/wi-time-1.svg" class="card-img-top cardImg" alt="Day Length">
               <div class="card-body">
                 <h5 class="card-title">Day Length</h5>
                 <p class="card-text" id="todayDayLengthText"></p>
               </div>
             </div>
             <div class="card shadow">
-              <img src="./images/wi-day-sunny.svg" class="card-img-top cardImg" alt="Solar Noon">
+              <img src="/images/wi-day-sunny.svg" class="card-img-top cardImg" alt="Solar Noon">
               <div class="card-body">
                 <h5 class="card-title">Solar Noon</h5>
                 <p class="card-text" id="todaySolarNoonText"></p>
               </div>
             </div>
             <div class="card shadow">
-              <img src="./images/time-zone.png" style="padding: 5px;" class="card-img-top cardImg" alt="Time Zone">
+              <img src="/images/time-zone.png" style="padding: 5px;" class="card-img-top cardImg" alt="Time Zone">
               <div class="card-body">
                 <h5 class="card-title">Time Zone</h5>
                 <p class="card-text" id="todayTimeZoneText"></p>
@@ -172,7 +177,7 @@
           </div>
           <div id="tomorrowCards" class="card-group mb-5 text-center">
             <div class="card shadow">
-              <img src="./images/wi-sunrise.svg" class="card-img-top cardImg" alt="Sunrise">
+              <img src="/images/wi-sunrise.svg" class="card-img-top cardImg" alt="Sunrise">
               <!-- <i class="wi wi-night-sleet card-img-top"></i> -->
               <div class="card-body">
                 <h5 class="card-title">Sunrise</h5>
@@ -180,42 +185,42 @@
               </div>
             </div>
             <div class="card shadow">
-              <img src="./images/wi-sunset.svg" class="card-img-top cardImg" alt="Sunset">
+              <img src="/images/wi-sunset.svg" class="card-img-top cardImg" alt="Sunset">
               <div class="card-body">
                 <h5 class="card-title">Sunset</h5>
                 <p class="card-text" id="tomorrowSunsetText"></p>
               </div>
             </div>
             <div class="card shadow">
-              <img src="./images/sunrise.png" class="card-img-top cardImg" alt="Dawn">
+              <img src="/images/sunrise.png" class="card-img-top cardImg" alt="Dawn">
               <div class="card-body">
                 <h5 class="card-title">Dawn</h5>
                 <p class="card-text" id="tomorrowDawnText"></p>
               </div>
             </div>
             <div class="card shadow">
-              <img src="./images/dusk.png" class="card-img-top cardImg" alt="Dusk">
+              <img src="/images/dusk.png" class="card-img-top cardImg" alt="Dusk">
               <div class="card-body">
                 <h5 class="card-title">Dusk</h5>
                 <p class="card-text" id="tomorrowDuskText"></p>
               </div>
             </div>
             <div class="card shadow">
-              <img src="./images/wi-time-1.svg" class="card-img-top cardImg" alt="Day Length">
+              <img src="/images/wi-time-1.svg" class="card-img-top cardImg" alt="Day Length">
               <div class="card-body">
                 <h5 class="card-title">Day Length</h5>
                 <p class="card-text" id="tomorrowDayLengthText"></p>
               </div>
             </div>
             <div class="card shadow">
-              <img src="./images/wi-day-sunny.svg" class="card-img-top cardImg" alt="Solar Noon">
+              <img src="/images/wi-day-sunny.svg" class="card-img-top cardImg" alt="Solar Noon">
               <div class="card-body">
                 <h5 class="card-title">Solar Noon</h5>
                 <p class="card-text" id="tomorrowSolarNoonText"></p>
               </div>
             </div>
             <div class="card shadow">
-              <img src="./images/time-zone.png" style="padding: 5px;" class="card-img-top cardImg" alt="Time Zone">
+              <img src="/images/time-zone.png" style="padding: 5px;" class="card-img-top cardImg" alt="Time Zone">
               <div class="card-body">
                 <h5 class="card-title">Time Zone</h5>
                 <p class="card-text" id="tomorrowTimeZoneText"></p>
