@@ -29,7 +29,7 @@ function currentLocationSuccess(pos) {
   console.log("Lon", lon);
 
   let getGeoCodeUrl = "https://geocode.maps.co/reverse?lat=" + encodeURIComponent(lat) + "&lon="+encodeURIComponent(lon);
-  geoCodeApiCall(getGeoCodeUrl, "currentLocation");
+  geoCodeApiCall(getGeoCodeUrl, "currentLocation", "");
 
 }
 
@@ -45,7 +45,7 @@ function handleLocationSearch() {
   if (locationSearchInput.trim().length != 0) {
     let getGeoCodeUrl = "https://geocode.maps.co/search?q=" + encodeURIComponent(locationSearchInput);
 
-    geoCodeApiCall(getGeoCodeUrl, "userLocationSearch");
+    geoCodeApiCall(getGeoCodeUrl, "userLocationSearch", locationSearchInput);
   }
   else {
     let toastElement = document.getElementById("toastError");
@@ -58,7 +58,7 @@ function handleLocationSearch() {
 }
 
 // Function to call geoCodeApi for current and user searched location
-function geoCodeApiCall(getGeoCodeUrl, source) {
+function geoCodeApiCall(getGeoCodeUrl, source ,locationSearchInput) {
   let toastElement = document.getElementById("toastError");
   let outerLoaderElement = document.getElementById("loaderOuter");
   outerLoaderElement.style.display = "block";
