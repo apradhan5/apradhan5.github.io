@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en-US">
+
+<!-- Header Start -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap library attached -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="styles/style.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" sizes="32x32" href="images/Browser_Title_1.png">
+    <title>Aditya Pradhan</title>
+</head>
+<!-- Header End -->
+
+<!-- Body Start-->
+
+<body>
+    <!-- Navigation Bar -->
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
+            aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand text-white" style="font-size: 24px;">ITMD 536 - Group Project</a>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03" style="margin-right: 5%;">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarScrollingDropdown"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                        style="font-size: 19px;">
+                        Language
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                        <li><a class="dropdown-item" href="#" onclick="handleLanguageChange('en')">English&nbsp;&nbsp;
+                            <svg xmlns="http://www.w3.org/2000/svg" id="englishCheckMark"
+                                class="languageCheckMark" width="16" height="16" fill="currentColor"
+                                class="bi bi-check2" viewBox="0 0 16 16">
+                                <path
+                                    d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+                            </svg></a></li>
+                        <li><a class="dropdown-item" href="#" onclick="handleLanguageChange('fr')">French&nbsp;&nbsp;
+                            <svg xmlns="http://www.w3.org/2000/svg" id="frenchCheckMark"
+                                class="languageCheckMark" width="16" height="16" fill="currentColor"
+                                class="bi bi-check2" viewBox="0 0 16 16">
+                                <path
+                                    d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+                            </svg></a></li>
+                    </ul>
+                </li>
+                <!-- Logout Button -->
+                <li class="nav-item">
+                    <!-- Display dynamically based on login status -->
+                    <button class="btn btn-danger" onclick="handleLogout()">Logout</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    <!-- Error Toast Message -->
+    <div id="toastError" class="shadow rounded-3 d-flex justify-content-evenly" role="alert">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+            class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
+            <path
+                d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+        </svg>
+        &nbsp; <p id="toastErrorLabel">Invalid Input! Please Enter Only
+            Numbers.</p> &nbsp;
+        <button type="button" class="btn-close btn-close-white" onclick="handleClose('error')" id="closeBtn"
+            aria-label="Close"></button>
+    </div>
+
+    <!-- Success Toast Message -->
+    <div id="toastSuccess" class="shadow rounded-3 d-flex justify-content-evenly" role="alert">
+        Language Changed !!
+    </div>
+    <!-- Main App Section -->
+    <section>
+        <div class="container bg-white rounded-3 shadow p-3 mt-4 mb-3" style="width: 65%;">
+            <div class="row p-3 m-2">
+                <div class="fs-1 text-wrap text-center mb-3 pb-2">
+                    <p id="tipCalculatorHeading" class="display-2" style="letter-spacing: 10px;">Tip Calculator</p>
+                </div>
+            </div>
+            <div
+                class="row justify-content-center justify-content-sm-center justify-content-md-center justify-content-lg-center justify-content-xl-center">
+                <div class="col-10 p-1 m-2 h5 col-sm-10 col-md-5 col-lg-5 col-xl-5 col-xxl-5" style="font-weight: 300;">
+                    <form>
+                        <div class="mb-3">
+                            <label for="billTotalInput" id="billTotalInputLabel" class="form-label">Bill Total</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="text" oninput="handleBillInputChange()"
+                                    placeholder="Enter the Total Bill Amount" maxlength="6" class="form-control"
+                                    id="billTotalInput">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="tipInput" id="tipLabel" class="form-label">Tip</label>
+                            <input type="range" class="form-range" step="1" min="0" max="100" id="tipInput" value="0"
+                                onchange="handleTipRangeChange()">
+                        </div>
+                        <div class="mb-3">
+                            <label for="tipPercentage" id="tipPercentageLabel" class="form-label">Tip Percentage</label>
+                            <div class="input-group">
+                                <span class="input-group-text">%</span>
+                                <input type="text" disabled class="form-control" id="tipPercentage">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="tipAmount" id="tipAmountLabel" class="form-label">Tip Amount</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="text" disabled class="form-control" id="tipAmount">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="totalAmountInput" id="totalAmountInputLabel" class="form-label">Total Bill With
+                                Tip</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="text" disabled class="form-control" id="totalAmountInput">
+                            </div>
+                        </div>
+
+                </div>
+                <div class="col-10 p-1 m-2 col-sm-10 col-md-5 col-lg-5 col-xl-5 col-xxl-5 rounded-3 resultBox">
+                    <div class="container m-auto" style="width: 90%;">
+                        <div class="row">
+                            <div class="col">
+                                <h3 class="display-6" id="totalTipHeading">Total Tip</h3>
+                            </div>
+                            <div class="col text-end">
+                                <h1 class="display-5" id="tipAmountText">$0.00</h1>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h3 class="display-6" id="totalAmountHeading">Total
+                                    Bill</h3>
+                            </div>
+                            <div class="col text-end">
+                                <h1 class="display-5" id="totalAmountText">$0.00</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 6rem;" class="p-2 d-flex justify-content-center">
+                        <input type="reset" class="btn btn-lg shadow" onclick="handleReset()" id="resetBtn"
+                            value="Reset">
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer">
+            <div class="innerFooter">
+                <p id="footerText">©Copyright and Developed By - ADITYA
+                    PRADHAN</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Script Added -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <!-- Custom Script Added -->
+    <script src="tipCalculator.js"></script>
+</body>
+<!-- Body End -->
+
+</html>
