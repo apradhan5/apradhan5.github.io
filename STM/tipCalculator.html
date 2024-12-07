@@ -92,7 +92,7 @@
                 class="row justify-content-center justify-content-sm-center justify-content-md-center justify-content-lg-center justify-content-xl-center">
                 <div class="col-10 p-1 m-2 h5 col-sm-10 col-md-5 col-lg-5 col-xl-5 col-xxl-5" style="font-weight: 300;">
                     <form>
-                        <div class="mb-3">
+                        <div class="mb-3 billTotal">
                             <label for="billTotalInput" id="billTotalInputLabel" class="form-label">Bill Total</label>
                             <div class="input-group">
                                 <span class="input-group-text">$</span>
@@ -106,21 +106,21 @@
                             <input type="range" class="form-range" step="1" min="0" max="100" id="tipInput" value="0"
                                 onchange="handleTipRangeChange()">
                         </div> -->
-                        <div class="mb-3">
+                        <div class="mb-3 tipPercentage">
                             <label for="tipPercentage" id="tipPercentageLabel" class="form-label">Tip Percentage</label>
                             <div class="input-group">
                                 <span class="input-group-text">%</span>
                                 <input type="number"  step="1" class="form-control" id="tipPercentage" oninput="handleTipRangeChange()">
                             </div>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3 tipAmount">
                             <label for="tipAmount" id="tipAmountLabel" class="form-label">Tip Amount</label>
                             <div class="input-group">
                                 <span class="input-group-text">$</span>
                                 <input type="text" disabled class="form-control" id="tipAmount">
                             </div>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3 totalAmountHeading">
                             <label for="totalAmountInput" id="totalAmountInputLabel" class="form-label">Total Bill With
                                 Tip</label>
                             <div class="input-group">
