@@ -89,6 +89,7 @@ function handleBillInputChange() {
 
 }
 
+
 // This function is invoked when the user clicks on the cancel button of toast message.
 function handleClose(type) {
     switch (type) {
@@ -108,9 +109,27 @@ function handleClose(type) {
 
 // This function is invoked when the input range changes
 function handleTipRangeChange() {
-    tipAmountInput = parseInt(document.getElementById("tipInput").value);
-    document.getElementById("tipPercentage").value = tipAmountInput;
-    this.calculateTotal();
+    if (document.getElementById("tipPercentage").value == "" || document.getElementById("tipPercentage").value == null) {
+        let toastElement = document.getElementById("toastError");
+        toastElement.classList.add("show");
+        setTimeout(() => { // After 4 seconds, the class will be removed from div
+            toastElement.classList.remove("show");
+        }, 4000);
+        document.getElementById("tipAmount").value = "";
+        document.getElementById("totalAmountInput").value = "";
+        document.getElementById("tipAmountText").textContent = "$0.00";
+        document.getElementById("totalAmountText").innerHTML = "$0.00";
+        tipAmountValue = 0;
+        tipAmountInput = 0;
+        totalBillAmount = 0;
+    }
+    // if (document.getElementById("tipPercentage").value != "") {
+    else {
+        tipAmountInput = parseInt(document.getElementById("tipPercentage").value);
+        document.getElementById("tipPercentage").value = tipAmountInput;
+        this.calculateTotal();
+    }
+
 }
 
 // This function is used to calculate the total amount of the bill including tip
@@ -152,7 +171,7 @@ function handleLanguageChange(language) {
             document.getElementById("tipCalculatorHeading").innerHTML = "Tip Calculator";
             document.getElementById("billTotalInputLabel").innerHTML = "Bill Total";
             document.getElementById("billTotalInput").placeholder = "Enter the Total Bill Amount";
-            document.getElementById("tipLabel").innerHTML = "Tip";
+            // document.getElementById("tipLabel").innerHTML = "Tip";
             document.getElementById("tipPercentageLabel").innerHTML = "Tip Percentage";
             document.getElementById("tipAmountLabel").innerHTML = "Tip Amount";
             document.getElementById("totalAmountInputLabel").innerHTML = "Total Bill With Tip";
@@ -176,7 +195,7 @@ function handleLanguageChange(language) {
             document.getElementById("tipCalculatorHeading").innerHTML = "Calculateur de pourboire";
             document.getElementById("billTotalInputLabel").innerHTML = "Total de la facture";
             document.getElementById("billTotalInput").placeholder = "Entrez le montant total de la facture";
-            document.getElementById("tipLabel").innerHTML = "Conseil";
+            // document.getElementById("tipLabel").innerHTML = "Conseil";
             document.getElementById("tipPercentageLabel").innerHTML = "Pourcentage de pourboire";
             document.getElementById("tipAmountLabel").innerHTML = "Montant du pourboire";
             document.getElementById("totalAmountInputLabel").innerHTML = "Facture totale avec pourboire";

@@ -307,7 +307,7 @@ nav {
 #toastError {
   visibility: hidden;
   min-width: 250px;
-  margin-left: -125px;
+  margin-left: -20%;
   background-color: #ba0517;
   color: #fff;
   text-align: center;

@@ -101,16 +101,16 @@
                                     id="billTotalInput">
                             </div>
                         </div>
-                        <div class="mb-3">
+                        <!-- <div class="mb-3">
                             <label for="tipInput" id="tipLabel" class="form-label">Tip</label>
                             <input type="range" class="form-range" step="1" min="0" max="100" id="tipInput" value="0"
                                 onchange="handleTipRangeChange()">
-                        </div>
+                        </div> -->
                         <div class="mb-3">
                             <label for="tipPercentage" id="tipPercentageLabel" class="form-label">Tip Percentage</label>
                             <div class="input-group">
                                 <span class="input-group-text">%</span>
-                                <input type="text" disabled class="form-control" id="tipPercentage">
+                                <input type="number"  step="1" class="form-control" id="tipPercentage" oninput="handleTipRangeChange()">
                             </div>
                         </div>
                         <div class="mb-3">
