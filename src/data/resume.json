@@ -1,0 +1,230 @@
+{
+  "basics": {
+    "name": "Aditya Pradhan",
+    "title": "Senior Salesforce Developer",
+    "summary": "I turn complex business problems into clean, scalable solutions that people actually enjoy using. With a Master’s in Information Technology & Management and professional experience of more than three years, I’ve designed solutions that streamline operations, improve user experience, and automate what others assumed had to be manual. I was proud to be recognized with the Outstanding Student Award, a reflection of my academic excellence, project contributions, and consistent drive to go beyond expectations. My toolkit spans Apex, LWC, Flows, JavaScript, and beyond, but what truly sets me apart is my drive to understand the “why” behind every requirement. Whether it’s building Salesforce solutions or building full-stack apps, I aim to deliver thoughtful, maintainable code that solves real business challenges. I thrive in environments where curiosity meets execution—and I’m now looking to bring that mindset to a full-time opportunity where I can keep learning, building, and contributing from day one. Salesforce Certified Developer with experience in delivering scalable solutions across Sales Cloud, Service Cloud, and Experience Cloud including creating small-scope Agentforce agents within Service Cloud. Honored with the “Outstanding Student Award” for academic excellence in Masters and recognized as a “Star Performer” for leading cross-functional teams and deploying high-impact applications using Apex, LWC, and Flows. Experienced in REST API integrations, CI/CD, and automation that improved productivity by over 70% and saved 30+ hours per month. Adept in Agile environments, with strong collaboration and communication skills, and a proven ability to translate business requirements into reliable Salesforce solutions.",
+    "location": "Jacksonville, FL",
+    "email": "adiofficial2507@gmail.com",
+    "phone": "+13126468883",
+    "links": [
+      { "name": "LinkedIn", "url": "www.linkedin.com/in/apradhan5" },
+      { "name": "Portfolio", "url": "apradhan5.github.io/" },
+      { "name": "GitHub", "url": "GitHub" },
+      { "name": "Salesforce Trailblazer", "url": "Salesforce Trailblazer" }
+    ]
+  },
+  "experience": [
+    {
+      "company": "HCL America Inc.",
+      "role": "Senior Salesforce Developer",
+      "dates": "AUG 2025 – PRESENT",
+      "location": "Jacksonville, FL",
+      "bullets": [
+        "Acted as a primary hands-on Senior Salesforce developer for a large US-based enterprise client, designing and delivering Lightning Web Components (LWC) and Apex-based backend logic (classes, triggers, async processing) with a strong focus on scalability, security, and long-term maintainability.",
+        "Independently owned end-to-end delivery of Service Cloud features, working from requirement clarification through development, testing, and production deployment, while consistently meeting sprint commitments.",
+        "Worked on Agentforce as part of Service Cloud implementations, creating and configuring small, rule-driven agents integrated into existing case workflows.",
+        "Created and configured 6 small, rule-driven Agentforce agents, each focused on specific Service Cloud scenarios such as case status retrieval, new case creation, updates, escalation guidance, and controlled handoff to human agents.",
+        "Ensured Agentforce-assisted interactions followed validation rules and Service Cloud processes, with proper error handling and seamless handoff to human agents for exceptions or complex scenarios.",
+        "Designed and implemented REST-based Apex integrations, handling complex request and response structures to ensure reliable data synchronization between Salesforce and external systems.",
+        "Contributed to solution design discussions and proactively identified technical gaps, proposing improvements that reduced downstream defects and improved overall solution stability.",
+        "Collaborated closely with product owners and QA teams in an Agile environment, supporting story refinement, defect resolution, and smooth releases across environments."
+      ]
+    },
+    {
+      "company": "Illinois Institute of Technology",
+      "role": "Graduate Teaching Assistant, Web Application Foundations",
+      "dates": "AUG 2024 – MAY 2025 (9 months)",
+      "location": "Chicago, Illinois, United States",
+      "bullets": [
+        "Designed innovative grading rubrics and developed comprehensive assignments, ensuring transparency, fairness, and alignment with course learning objectives.",
+        "Facilitated dynamic lab sessions and class projects, streamlining complex concepts into actionable insights, resulting in improved student performance and academic engagement."
+      ]
+    },
+    {
+      "company": "InfoBeans Technologies",
+      "role": "Salesforce Developer",
+      "dates": "MAR 2021 – JUL 2023 (2 year 4 months) ",
+      "location": "Indore, Madhya Pradesh, India",
+      "bullets": [
+        "Developed a robust trigger framework in Salesforce, streamlining coding and decreasing issue resolution time by 40%.",
+        "Engineered an exception handling framework that improved system-wide exception identification, decreasing resolution time by 50% and increasing support engineer’s productivity.",
+        "Developed and implemented an advanced pitching system on Salesforce Sales Cloud with team of 12, decreasing pitching time by 52% through centralized quotation and document tracking.",
+        "Designed and implemented Apex classes, triggers, and batch processes, following best practices for bulkification, error handling, and long-term maintainability.",
+        "Collaborated closely with business analysts and architects during requirement grooming, technical design discussions, and sprint planning in an Agile delivery environment.",
+        "Participated in peer code reviews, unit testing, and deployment activities, ensuring code quality, platform stability, and smooth releases across environments."
+      ]
+    },
+    {
+      "company": "CyberTechVision aka Vision KBK",
+      "role": "Junior Software Developer",
+      "dates": "NOV 2019 - DEC 2020 (1 year 2 months)",
+      "location": "Indore, Madhya Pradesh, India",
+      "bullets": [
+        "Engineered and optimized web applications using PHP, HTML5, CSS3, JavaScript (ES6+), and Bootstrap, ensuring seamless user interactions and intuitive interfaces.",
+        "Applied advanced data analysis techniques with Python, Pandas, NumPy, and scikit-learn to derive actionable insights, enhancing strategic decision-making processes / generating actionable insights that informed business strategies and increasing operational efficiency by 25%.",
+        "Developed machine learning models to drive predictive analytics solutions, optimizing operational efficiencies and business outcomes.",
+        "Collaborated closely with stakeholders to translate business requirements into scalable technical solutions and design specifications.",
+        "Managed MySQL databases and performed server-side scripting with PHP, supporting data-driven application functionalities and backend operations."
+      ]
+    }
+  ],
+  "achievements": [
+    {
+      "title": "Improved Productivity",
+      "context": "Improved productivity by over 70% and saved 30+ hours per month through REST API integrations, CI/CD, and automation."
+    },
+    {
+      "title": "Decreased Issue Resolution Time",
+      "context": "Developed a robust trigger framework in Salesforce, streamlining coding and decreasing issue resolution time by 40%."
+    },
+    {
+      "title": "Increased Support Engineer's Productivity",
+      "context": "Engineered an exception handling framework that improved system-wide exception identification, decreasing resolution time by 50% and increasing support engineer’s productivity."
+    },
+    {
+      "title": "Decreased Pitching Time",
+      "context": "Developed and implemented an advanced pitching system on Salesforce Sales Cloud with team of 12, decreasing pitching time by 52% through centralized quotation and document tracking."
+    },
+    {
+      "title": "Increased Operational Efficiency",
+      "context": "Applied advanced data analysis techniques generating actionable insights that informed business strategies and increasing operational efficiency by 25%."
+    },
+    {
+      "title": "Cut Quotation Turnaround Time",
+      "context": "Automated pricing calculations and quote generation directly from Opportunities using Apex and Flows, reducing manual effort and cutting quotation turnaround time by 52%."
+    },
+    {
+      "title": "Saved Manual Process Time",
+      "context": "Automated user creation via Batch Apex with CSV input, saving 30+ hours/month in manual processes and increasing efficiency."
+    },
+    {
+      "title": "Improved Hiring Efficiency",
+      "context": "Led a cross-functional team of 8 members to streamline the hiring process, achieving a 35% improvement in efficiency and consistently exceeding monthly recruitment targets."
+    }
+  ],
+  "projects": [
+    {
+      "title": "Consent Preferences & Case Management",
+      "stack": "LWC | SERVICE CLOUD | APEX | TRIGGERS | REST API",
+      "dates": "SEP 2025 – PRESENT",
+      "bullets": [
+        "Designed and delivered a Service Cloud consent preference solution using Lightning Web Components, enabling end users to manage text and call communication preferences while ensuring real-time synchronization with external systems through REST-based integrations.",
+        "Implemented a complex external case creation integration, mapping large and highly relational data models into Salesforce to accurately create and update cases from third-party platforms.",
+        "Created and configured a lightweight, rule-driven Agentforce agent to support basic Service Cloud case handling scenarios, including guided actions and automated responses within predefined workflows.",
+        "Integrated Agentforce-assisted interactions with existing Salesforce Flows and Service Cloud processes to ensure consistent behavior, validation, and controlled handoff to human agents for exceptions.",
+        "Coordinated closely with business stakeholders, integration teams, and QA to clarify requirements, resolve data-mapping challenges, and ensure reliable end-to-end functionality."
+      ]
+    },
+    {
+      "title": "HR Outsourcing - Pricing Console",
+      "stack": "APEX | SALES CLOUD | LWC | FLOW | TRIGGER",
+      "dates": "MAY 2023 – JUL 2023",
+      "bullets": [
+        "Designed and implemented a Sales Cloud–based pricing and quotation console to support HR outsourcing sales workflows, enabling faster and more consistent pricing decisions.",
+        "Automated pricing calculations and quote generation directly from Opportunities using Apex and Flows, reducing manual effort and cutting quotation turnaround time by 52%.",
+        "Built Lightning Web Components (LWC) to display pricing details, calculated values, and quote summaries in a structured and user-friendly interface for sales users."
+      ]
+    },
+    {
+      "title": "Ed-Tech Service Console",
+      "stack": "LWC | SERVICE CLOUD | BATCH APEX | TRIGGERS | FLOWS | CASE ROUTING",
+      "dates": "JUL 2022 – MAR 2023",
+      "bullets": [
+        "Developed a Student Journey Lifecycle Management application on Salesforce Service Cloud, utilizing Cases, Omni-Channel, and Service Console, improving student engagement and support efficiency.",
+        "Automated user creation via Batch Apex with CSV input, saving 30+ hours/month in manual processes and increasing efficiency.",
+        "Designed and implemented custom case routing logic using a combination of Flows and Apex to automatically assign cases based on student type, request category, and priority.",
+        "Implemented Apex triggers and validation logic to enforce data consistency across the student lifecycle and prevent incomplete or invalid case creation."
+      ]
+    },
+    {
+      "title": "Requirement Conversation – Lead Developer",
+      "stack": "HTML | CSS | JAVASCRIPT | GITHUB | EXPERIENCE CLOUD",
+      "dates": "OCT 2021 – MAY 2022",
+      "bullets": [
+        "Led a cross-functional team of 8 members to streamline the hiring process, achieving a 35% improvement in efficiency and consistently exceeding monthly recruitment targets.",
+        "Awarded as a “Star Performer” for successfully leading the team and delivering a high-impact Salesforce solution adopted across the hiring process.",
+        "Defined functional workflows and translated hiring requirements into frontend-driven solutions using Experience Cloud and Sales Cloud, ensuring a responsive and user-friendly experience for recruiters and stakeholders.",
+        "Established GitHub-based version control and collaboration practices, enabling parallel development, smoother reviews, and consistent code quality across the team."
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "group": "Programming Language",
+      "items": ["Apex", "Java", "JavaScript", "Python"]
+    },
+    {
+      "group": "Salesforce Development",
+      "items": ["HTML", "CSS", "Lightning Web Components (LWC)", "Apex Triggers", "Async Apex", "Flows", "SLDS", "Aura Components", "Scratch Orgs", "Salesforce CLI", "Agentforce"]
+    },
+    {
+      "group": "DevOps, Backend, Web Services",
+      "items": ["CI/CD", "Azure", "GitHub", "SOQL", "Apex Triggers", "SSO", "MySQL", "Omniscript", "OAUTH2", "REST API", "Integration Testing", "Change Data Capture"]
+    },
+    {
+      "group": "Salesforce Admin",
+      "items": ["Salesforce Configuration", "Sharing Settings", "Workflow Rules", "Security Settings", "User Management"]
+    },
+    {
+      "group": "Tools",
+      "items": ["JIRA", "Change Set", "Workbench", "Agile Scrum", "VS Code", "GitHub", "SF Workbench", "Technical Documentation"]
+    },
+    {
+      "group": "Top Skills",
+      "items": ["Requirements Management", "Requirements Gathering", "Application Programming Interfaces (API)"]
+    },
+    {
+      "group": "Languages",
+      "items": ["English","Hindi", "Marathi"]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Illinois Institute of Technology",
+      "degree": "Master of Information Technology and Management, GPA – 4.0",
+      "dates": "August 2023 - May 2025",
+      "location": "Chicago, IL"
+    },
+    {
+      "institution": "Acharya Institute of Technology",
+      "degree": "Bachelor of Engineering, Computer Science",
+      "dates": "2016 - 2020",
+      "location": "Bengaluru, India"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Salesforce Certified Platform Developer I",
+      "logo": "/certifications/PD1.png"
+    },
+    {
+      "name": "Salesforce Certified Platform Developer II",
+      "logo": "/certifications/PD2.png"
+    },
+    {
+      "name": "Salesforce JavaScript Developer 1",
+      "logo": "/certifications/JS1.png"
+    },
+    {
+      "name": "Salesforce AI Specialist",
+      "logo": "/certifications/Agentforce Specialist.png"
+    },
+    {
+      "name": "Salesforce AI Associate",
+      "logo": "/certifications/AI Associate.png"
+    }
+  ],
+  "awards": [
+    "Outstanding Student Award",
+    "Star Performer Award",
+    "Winner - \"Unlock the Power of Apps Contest\" using Power Apps",
+    "Best Intern Award"
+
+  ],
+  "extra": [
+    {
+      "title": "Publications",
+      "items": ["Augmented Reality: The New World"]
+    }
+  ]
+}
