@@ -48,76 +48,64 @@ export default function App() {
     };
   }, []);
 
-  const handleOpenAgentforce = () => {
-    // If the chat is already loaded, try to launch it directly
-    if (window.embeddedservice_bootstrap && window.embeddedservice_bootstrap.utilAPI) {
-      try {
+const handleOpenAgentforce = () => {
+  setIsAgentforceLoading(true);
+
+  const launchWhenReady = () => {
+    try {
+      if (window.embeddedservice_bootstrap?.utilAPI) {
         window.embeddedservice_bootstrap.utilAPI.launchChat();
-      } catch (e) {
-        console.error("Error launching chat:", e);
-      }
-      return;
-    }
-
-    // If the script is already injected but not fully initialized, do nothing
-    if (document.getElementById('sf-embedded-script')) {
-      return;
-    }
-
-    setIsAgentforceLoading(true);
-
-    // Provide a fallback observer just in case the events are blocked or named differently in this org
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        // Look for typical Salesforce wrapper
-        const embeddedFrame = document.querySelector('.embeddedMessagingFrame');
-        if (embeddedFrame && getComputedStyle(embeddedFrame).display === 'none') {
-          setIsAgentforceLoaded(false);
-        }
-      });
-    });
-    observer.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class'] });
-
-    // Define the initialization function globally so the script can call it
-    window.initEmbeddedMessaging = () => {
-      try {
-        window.embeddedservice_bootstrap.settings.language = 'en_US';
-
-        window.embeddedservice_bootstrap.init(
-          '00Daj00000mC8UP',
-          'Recruiter_Channel',
-          'https://infobeans-11a-dev-ed.develop.my.site.com/ESWRecruiterChannel1773201585456',
-          {
-            scrt2URL: 'https://infobeans-11a-dev-ed.develop.my.salesforce-scrt.com'
-          }
-        );
-
-        // Attempt to open the chat window automatically after initialization
-        setTimeout(() => {
-          if (window.embeddedservice_bootstrap && window.embeddedservice_bootstrap.utilAPI) {
-            window.embeddedservice_bootstrap.utilAPI.launchChat();
-          }
-          setIsAgentforceLoading(false);
-          setIsAgentforceLoaded(true); // Hide our custom floating button
-        }, 1500);
-      } catch (err) {
-        console.error('Error loading Embedded Messaging: ', err);
         setIsAgentforceLoading(false);
+        setIsAgentforceLoaded(true);
       }
-    };
-
-    // Dynamically inject the Salesforce script
-    const script = document.createElement('script');
-    script.id = 'sf-embedded-script';
-    script.type = 'text/javascript';
-    script.src = 'https://infobeans-11a-dev-ed.develop.my.site.com/ESWRecruiterChannel1773201585456/assets/js/bootstrap.min.js';
-    script.onload = () => {
-      if (window.initEmbeddedMessaging) {
-        window.initEmbeddedMessaging();
-      }
-    };
-    document.body.appendChild(script);
+    } catch (e) {
+      console.error("Error launching chat:", e);
+      setIsAgentforceLoading(false);
+    }
   };
+
+  window.addEventListener(
+    "onEmbeddedMessagingButtonCreated",
+    launchWhenReady,
+    { once: true }
+  );
+
+  if (window.embeddedservice_bootstrap?.utilAPI) {
+    launchWhenReady();
+    return;
+  }
+
+  if (document.getElementById("sf-embedded-script")) {
+    return;
+  }
+
+  window.initEmbeddedMessaging = () => {
+    try {
+      window.embeddedservice_bootstrap.settings.language = "en_US";
+
+      window.embeddedservice_bootstrap.init(
+        "00Daj00000mC8UP",
+        "Recruiter_Channel",
+        "https://infobeans-11a-dev-ed.develop.my.site.com/ESWRecruiterChannel1773201585456",
+        {
+          scrt2URL:
+            "https://infobeans-11a-dev-ed.develop.my.salesforce-scrt.com",
+        }
+      );
+    } catch (err) {
+      console.error("Error loading Embedded Messaging: ", err);
+      setIsAgentforceLoading(false);
+    }
+  };
+
+  const script = document.createElement("script");
+  script.id = "sf-embedded-script";
+  script.type = "text/javascript";
+  script.src =
+    "https://infobeans-11a-dev-ed.develop.my.site.com/ESWRecruiterChannel1773201585456/assets/js/bootstrap.min.js";
+  script.onload = () => window.initEmbeddedMessaging?.();
+  document.body.appendChild(script);
+};
 
   return (
     <ThemeProvider>
